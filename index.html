@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Yahoo finance ticker-API-AJAX-INTRO</title>
+    <style type="text/css" media="screen">
+#header{
+    width:100%;
+    text-align:center;
+    font-size:20px;
+}
+#stock-details{
+    width:100%;
+    margin:auto;
+    padding:15px;
+}
+table{width: 100%}
+td{
+    text-transform:uppercase;
+    text-align:center;
+    padding:10px;
+    
+}
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="what-ticker">
+            What ticker do you want to search for?
+        </div>
+        <form id="ticker-search">
+            <input type="text" id="symbol" placeholder="e.g. GOOG">
+            <input type="submit" value="get me the quote">
+
+        </form>
+    </div>
+
+    <div id="stock-details">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Stock Symbol</th>
+                    <th>Company Name</th>
+                    <th>Ask Price</th>
+                    <th>Daily Chance</th>
+                    <th>Daily High</th>
+                </tr>
+            </thead>
+            <tbody id="ticker-body">
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('#ticker-search').submit(function(){
+                // alert("form was submitted") va
+                var ticker =$('#symbol').val();
+            
+                 event.preventDefault(); 
+        }) 
+       
+        });
+        </script>
+</body>
+
+</html>
