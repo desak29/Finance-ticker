@@ -26,13 +26,12 @@
             text-align: center;
             padding: 10px;
         }
- 
-     
     </style>
 </head>
 
 <body>
     <div id="header">
+        </div>
         <div id="what-ticker">
             What ticker do you want to search for?
         </div>
@@ -63,22 +62,19 @@
                         <td>-</td>
                         <td>-</td>
                     </tr>
-                    </tbody>
-                    </table>
-                    </div>
-                    </div>
-                    
-                    <script type="text/javascript" src=
-"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
-                   
-                   <script type="text/javascript">
+                </tbody>
+            </table>
+        </div>
+    
 
-    $(document).ready(function(){
-            $('#ticker-search').submit(function(){
-              
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#ticker-search').submit(function(event){
+            //   should allow prevent default to work on firefox and chrome
                 var ticker =$('#symbol').val();
-                var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20("' + ticker +'")%0A%09%09&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json';
-                 console.log(url);
+           var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%3D%22' + ticker + '%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=';
                  $.getJSON(url,function(yahooResult){
                      var stockInfo= yahooResult.query.results.quote;
                      console.log(stockInfo.Bid)
@@ -92,14 +88,17 @@
                     newHTML +='<td>' + askPrice +'</td>';
                      newHTML +='<td>' + dailyChange +'</td>';
                       newHTML +='<td>' + dayHigh +'</td></tr>';
-                     });
-            
+                    $('#ticker-body').html(newHTML); 
+                    });
+                     
+               event.preventDefault();  
             
         }) ;
-            event.preventDefault(); 
+        
         });
-</script>
-                    <!--// alert("form was submitted") va
+
+    </script>
+    <!--// alert("form was submitted") va
             //  this means that the ticker such yhoo will be placed in the jquery prototype -->
 </body>
 <!--question mark means in url that the program hass access to everything within their 
