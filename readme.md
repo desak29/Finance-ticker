@@ -15,3 +15,5 @@
 
     -its an a synchronous function, we didnt need to load the page. 
      using get json it went to url at yahoo got the information within the parameter in this case the parameter would be yahooResult 
+     
+     ##adding footable to improve data display 
