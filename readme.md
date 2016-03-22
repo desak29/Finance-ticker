@@ -17,3 +17,5 @@
      using get json it went to url at yahoo got the information within the parameter in this case the parameter would be yahooResult 
      
      ##adding footable to improve data display 
+     
+     -add data filter that checks every columm 

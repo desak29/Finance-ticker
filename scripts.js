@@ -22,6 +22,18 @@ $(document).ready(function() {
                     newHTML = updateTable(stockInfo)
                 }
                 $('#ticker-body').html(newHTML);
+                if($('.pagination').data("twbs-pagination")){
+                    $('.pagination').twbsPagination('destroy');
+                }
+
+                $('.pagination').twbsPagination({
+                  totalPages: data["pages"],
+                  visiblePages: 3,
+                  startPage: page,
+                  onPageClick: function (event, next_page) {
+                    params.page = next_page;
+                  }
+                });
             });
 
             event.preventDefault();
